@@ -2,23 +2,23 @@ package taojava.labs.polymorphism;
 
 /**
  * A text block surrounded by a box.
- *
+ * 
  * @author Samuel A. Rebelsky
  * @version 1.1 of February 2014
  */
 public class BoxedBlock
-  implements TextBlock
+    implements
+      TextBlock
 {
   // +--------------+------------------------------------------------------
   // | Class Fields |
   // +--------------+
 
   /**
-   * A really big sequence of dashes.  This sequence may grow as
-   * the program operates.
+   * A really big sequence of dashes. This sequence may grow as the program
+   * operates.
    */
   String lotsOfDashes = "--";
-
 
   // +--------+------------------------------------------------------------
   // | Fields |
@@ -38,7 +38,7 @@ public class BoxedBlock
    */
   public BoxedBlock(TextBlock contents)
   {
-    this.contents = _contents;
+    this.contents = contents;
   } // BoxedBlock(String)
 
   // +---------+-----------------------------------------------------------
@@ -47,11 +47,10 @@ public class BoxedBlock
 
   /**
    * Get one row from the block.
-   *
-   * @pre
-   *   0 <= i < this.height()
+   * 
+   * @pre 0 <= i < this.height()
    * @exception Exception
-   *   if the precondition is not met
+   *              if the precondition is not met
    */
   public String row(int i)
     throws Exception
@@ -59,19 +58,19 @@ public class BoxedBlock
     int h = this.contents.height();
 
     // The top and bottom of the box
-    if ((i == 0) || (i == h+1)) 
+    if ((i == 0) || (i == h + 1))
       {
         return "+" + dashes(this.contents.width()) + "+";
       } // if it's the top or the bottom
 
     // Stuff within the box
-    else if ((i > 0) && (i <= h)) 
+    else if ((i > 0) && (i <= h))
       {
-        return "|" + this.contents.row(i-1) + "|";
+        return "|" + this.contents.row(i - 1) + "|";
       } // if it's within the box
 
     // Everything else
-    else 
+    else
       {
         throw new Exception("Invalid row " + i);
       } // everything else
@@ -92,24 +91,24 @@ public class BoxedBlock
   {
     return 2 + this.contents.width();
   } // width()
- 
+
   // +---------------+-----------------------------------------------------
   // | Class Methods |
   // +---------------+
 
   /**
    * Build a sequence of dashes of a specified length.
-   *
+   * 
    * @pre len >= 0
    */
   String dashes(int len)
   {
     // Make sure the collection of dashes is big enough
-    while (lotsOfDashes.length() < len) 
+    while (lotsOfDashes.length() < len)
       {
         lotsOfDashes = lotsOfDashes.concat(lotsOfDashes);
       } // while
     // Extract an appropriate length substring
-    return lotsOfDashes.substring(0,len);
+    return lotsOfDashes.substring(0, len);
   } // dashes(int)
 } // class BoxedBlock

@@ -2,12 +2,13 @@ package taojava.labs.polymorphism;
 
 /**
  * One line of text.
- *
+ * 
  * @author Samuel A. Rebelsky
  * @version 1.1 of February 2014
  */
 public class TextLine
-  implements TextBlock
+    implements
+      TextBlock
 {
   // +--------+------------------------------------------------------------
   // | Fields |
@@ -36,16 +37,15 @@ public class TextLine
 
   /**
    * Get one row from the block.
-   *
-   * @pre
-   *   i == 0
+   * 
+   * @pre i == 0
    * @exception Exception
-   *   if i != 0
+   *              if i != 0
    */
   public String row(int i)
     throws Exception
   {
-    if (i != 0) 
+    if (i != 0)
       {
         throw new Exception("Invalid row " + i);
       } // if the row is invalid
@@ -67,5 +67,5 @@ public class TextLine
   {
     return this.line.length();
   } // width()
- 
+
 } // class TextLine
