@@ -5,14 +5,6 @@ package taojava.labs.polymorphism;
  */
 public class MathUtils
 {
-/**
- * A collection of Math utilities.
- *
- * @author Samuel A. Rebelsky
- * @version 1.0 of September 2005
- */
-public class Mathematician
-{
   /**
    * Compute an approximate square root of num.
    *
@@ -24,7 +16,7 @@ public class Mathematician
     double n = num.doubleValue();
     double lower = 1.0;
     double upper = n;
-    while (upper-lower > 0.01) 
+    while (upper-lower > 0.0001) 
       {
         double mid = upper/2.0 + lower/2.0;  
         if (mid*mid < n)
