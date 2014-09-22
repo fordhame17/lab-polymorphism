@@ -4,22 +4,11 @@ package taojava.labs.polymorphism;
  * The horizontal composition of two text blocks.
  * 
  * @author Samuel A. Rebelsky
- * @version 1.1 of February 2014
+ * @version 1.2 of September 2014
  */
-public class HCompose
-    implements
-      TextBlock
+public class HComposition
+    implements TextBlock
 {
-  // +--------------+------------------------------------------------------
-  // | Class Fields |
-  // +--------------+
-
-  /**
-   * A really big sequence of spaces. This sequence may grow as the program
-   * operates.
-   */
-  String lotsOfSpaces = "  ";
-
   // +--------+------------------------------------------------------------
   // | Fields |
   // +--------+
@@ -41,11 +30,11 @@ public class HCompose
   /**
    * Build a new block by composing left and right side by side.
    */
-  public HCompose(TextBlock left, TextBlock right)
+  public HComposition(TextBlock left, TextBlock right)
   {
     this.left = left;
     this.right = right;
-  } // HCompose(String)
+  } // HComposition(String)
 
   // +---------+-----------------------------------------------------------
   // | Methods |
@@ -78,7 +67,7 @@ public class HCompose
       } // if the left half contains an ith row
     else
       {
-        result = spaces(this.left.width());
+        result = TBUtils.spaces(this.left.width());
       } // if the left half does not contain an ith row
 
     if (i < rh)
@@ -87,7 +76,7 @@ public class HCompose
       } // if the right half contains an ith row
     else
       {
-        result = result.concat(spaces(this.right.width()));
+        result = result.concat(TBUtils.spaces(this.right.width()));
       } // if the right half does not contain an ith row
     return result;
   } // row(int)
@@ -112,22 +101,4 @@ public class HCompose
     return this.left.width() + this.right.width();
   } // width()
 
-  // +---------------+-----------------------------------------------------
-  // | Class Methods |
-  // +---------------+
-
-  /**
-   * Build a sequence of spaces of a specified length.
-   */
-  String spaces(int len)
-  {
-    // Make sure the collection of dashes is big enough
-    while (lotsOfSpaces.length() < len)
-      {
-        lotsOfSpaces = lotsOfSpaces.concat(lotsOfSpaces);
-      } // while
-    // Extract an appropriate length substring
-    return lotsOfSpaces.substring(0, len);
-  } // spaces(int)
-
-} // class HCompose
+} // class HComposition

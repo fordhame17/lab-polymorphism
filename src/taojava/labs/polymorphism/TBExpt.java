@@ -3,10 +3,10 @@ package taojava.labs.polymorphism;
 import java.io.PrintWriter;
 
 /**
- * A series of experiments with the layout classes.
+ * A series of experiments with the text block layout classes.
  * 
  * @author Samuel A. Rebelsky
- * @version 1.1 of February 2014
+ * @version 1.2 of September 2014
  */
 public class TBExpt
 {
@@ -20,7 +20,12 @@ public class TBExpt
     // Prepare for input and output
     PrintWriter pen = new PrintWriter(System.out, true);
 
-    TBUtils.print(pen, new TextLine("Hello"));
+    // Create a block to use
+    TextBlock block = new TextLine("Hello");
+    
+    // Print out the block
+    TBUtils.print(pen, block);
+    
     // Clean up after ourselves.
     pen.close();
   } // main(String[])

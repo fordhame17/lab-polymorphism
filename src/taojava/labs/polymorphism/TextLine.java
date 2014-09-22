@@ -4,11 +4,10 @@ package taojava.labs.polymorphism;
  * One line of text.
  * 
  * @author Samuel A. Rebelsky
- * @version 1.1 of February 2014
+ * @version 1.2 of September 2014
  */
 public class TextLine
-    implements
-      TextBlock
+    implements TextBlock
 {
   // +--------+------------------------------------------------------------
   // | Fields |

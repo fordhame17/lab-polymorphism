@@ -6,20 +6,9 @@ package taojava.labs.polymorphism;
  * @author Samuel A. Rebelsky
  * @version 1.1 of February 2014
  */
-public class VCompose
-    implements
-      TextBlock
+public class VComposition
+    implements TextBlock
 {
-  // +--------------+------------------------------------------------------
-  // | Class Fields |
-  // +--------------+
-
-  /**
-   * A really big sequence of spaces. This sequence may grow as the program
-   * operates.
-   */
-  String lotsOfSpaces = "  ";
-
   // +--------+------------------------------------------------------------
   // | Fields |
   // +--------+
@@ -41,11 +30,11 @@ public class VCompose
   /**
    * Build a new block by composing top and bottom vertically.
    */
-  public VCompose(TextBlock top, TextBlock bottom)
+  public VComposition(TextBlock top, TextBlock bottom)
   {
     this.top = top;
     this.bottom = bottom;
-  } // VCompose(String)
+  } // VComposition(String)
 
   // +---------+-----------------------------------------------------------
   // | Methods |
@@ -73,12 +62,12 @@ public class VCompose
     String padbot = "";
     if (tw > bw)
       {
-        padbot = spaces(tw - bw);
+        padbot = TBUtils.spaces(tw - bw);
       } // if the top is wider
     else
       // the bottom is wider
       {
-        padtop = spaces(bw - tw);
+        padtop = TBUtils.spaces(bw - tw);
       } // the bottom is wider
 
     if ((i < 0) || (i >= h))
@@ -115,22 +104,4 @@ public class VCompose
     return Math.max(this.top.width(), this.bottom.width());
   } // width()
 
-  // +---------------+-----------------------------------------------------
-  // | Class Methods |
-  // +---------------+
-
-  /**
-   * Build a sequence of spaces of a specified length.
-   */
-  String spaces(int len)
-  {
-    // Make sure the collection of dashes is big enough
-    while (lotsOfSpaces.length() < len)
-      {
-        lotsOfSpaces = lotsOfSpaces.concat(lotsOfSpaces);
-      } // while
-    // Extract an appropriate length substring
-    return lotsOfSpaces.substring(0, len);
-  } // spaces(int)
-
-} // class VCompose
+} // class VComposition
