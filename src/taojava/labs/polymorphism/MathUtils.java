@@ -26,4 +26,5 @@ public class MathUtils
       } // while
     return (upper + lower) / 2.0;
   } // squareRoot(Number)
+  
 } // class MathUtils
